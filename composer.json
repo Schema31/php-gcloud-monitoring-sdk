@@ -1,0 +1,15 @@
+{
+    "name": "schema31/php-gcloud-monitoring-sdk",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Antonio Turdo",
+            "email": "aturdo@schema31.it"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Schema31\\GCloudMonitoringSDK\\": "src/"
+        }
+    }
+}
