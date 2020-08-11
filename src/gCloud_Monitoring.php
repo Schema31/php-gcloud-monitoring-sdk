@@ -181,7 +181,7 @@ class gCloud_Monitoring {
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         curl_setopt($ch, CURLOPT_POST, count($postFields));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postFieldsStr);
-        curl_setopt($ch, CURLOPT_USERAGENT, self::LIBRARY_VERSION));
+        curl_setopt($ch, CURLOPT_USERAGENT, self::LIBRARY_VERSION);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
         /**
