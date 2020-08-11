@@ -17,24 +17,24 @@ class gCloud_Monitoring {
     public $protocol = 'GELF';
 
     /**
-     * Attuale versione della libreria
+     * Current Library Version
      *
      * @var string
      * @access public
      */
-    const LIBRARY_VERSION = "gCloud_Monitoring 1.0.3 [Composer]";
+    const LIBRARY_VERSION = "gCloud_Monitoring 1.0.4 [Composer]";
 
     /**
-     * @var string hostname del server GELF (hardcoded a "gelf.gcloud.schema31.it)
+     * @var string GELF Endpoint (normally hardcoded)
      * @access public
      */
     const GELF_SERVER = "gelf.gcloud.schema31.it";
 
     /**
-     * @var string hostname del server REST (hardcoded a "a-rm-02.gcloud.schema31.it")
+     * @var string REST Endpoint (normally hardcoded)
      * @access public
      */
-    const REST_ADAPTOR = "a-rm-02.gcloud.schema31.it";
+    const REST_ADAPTOR = "https://adaptor.monitoring.gcloud.schema31.it";
 
     /**
      * Inizializza tutte le proprietà di base del log
@@ -176,7 +176,7 @@ class gCloud_Monitoring {
          * Predisponiamo la richiesta
          */
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://{$server}/Adaptor/listener/REST");
+        curl_setopt($ch, CURLOPT_URL, {$server}."/Adaptor/listener/REST");
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         curl_setopt($ch, CURLOPT_POST, count($postFields));
