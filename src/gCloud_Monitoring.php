@@ -22,7 +22,7 @@ class gCloud_Monitoring {
      * @var string
      * @access public
      */
-    const LIBRARY_VERSION = "gCloud_Monitoring 1.0.4 [Composer]";
+    const LIBRARY_VERSION = "gCloud_Monitoring 1.0.5 [Composer]";
 
     /**
      * @var string GELF Endpoint (normally hardcoded)
@@ -181,6 +181,7 @@ class gCloud_Monitoring {
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         curl_setopt($ch, CURLOPT_POST, count($postFields));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postFieldsStr);
+        curl_setopt($ch, CURLOPT_USERAGENT, self::LIBRARY_VERSION));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
         /**
