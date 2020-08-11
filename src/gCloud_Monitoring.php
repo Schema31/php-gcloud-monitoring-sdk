@@ -22,7 +22,7 @@ class gCloud_Monitoring {
      * @var string
      * @access public
      */
-    const LIBRARY_VERSION = "gCloud_Monitoring 1.0.5 [Composer]";
+    const LIBRARY_VERSION = "gCloud_Monitoring 1.1.0 [Composer]";
 
     /**
      * @var string GELF Endpoint (normally hardcoded)
