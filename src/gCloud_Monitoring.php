@@ -176,7 +176,7 @@ class gCloud_Monitoring {
          * Predisponiamo la richiesta
          */
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, {$server}."/Adaptor/listener/REST");
+        curl_setopt($ch, CURLOPT_URL, $server."/Adaptor/listener/REST");
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
         curl_setopt($ch, CURLOPT_TIMEOUT, 5);
         curl_setopt($ch, CURLOPT_POST, count($postFields));
