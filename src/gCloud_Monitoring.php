@@ -189,8 +189,8 @@ class gCloud_Monitoring {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postFieldsStr);
         curl_setopt($ch, CURLOPT_USERAGENT, self::LIBRARY_VERSION);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        if(is_string(proxy) && trim(proxy) != ''){
-            curl_setopt($ch, CURLOPT_PROXY, proxy);
+        if(is_string($proxy) && trim($proxy) != ''){
+            curl_setopt($ch, CURLOPT_PROXY, $proxy);
         }
 
         /**
