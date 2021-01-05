@@ -20,7 +20,7 @@ class gCloud_Monitoring {
      * @var string|null proxy url di Proxy per inviare un messaggio (REST)
      * @access public
      */
-    public $proxy = null; //127.0.0.1:8888
+    public $proxy = null; //http://127.0.0.1:8080/
 
     /**
      * Current Library Version
