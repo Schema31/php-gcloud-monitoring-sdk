@@ -17,10 +17,10 @@ class gCloud_Monitoring {
     public $protocol = 'GELF';
 
     /**
-     * @var string|null proxy url di Proxy per inviare un messaggio (REST)
+     * @var string|false proxy url di Proxy per inviare un messaggio (REST)
      * @access public
      */
-    public $proxy = null; //http://127.0.0.1:8080/
+    public $proxy = false; //http://127.0.0.1:8080/
 
     /**
      * Current Library Version
@@ -122,7 +122,7 @@ class gCloud_Monitoring {
              * Inviamo il log
              */
             if ($this->protocol == 'REST') {
-                return self::writeREST($this->message);
+                return self::writeREST($this->message, $this->proxy);
             } else {
                 return self::writeGELF($this->message);
             }
@@ -161,7 +161,7 @@ class gCloud_Monitoring {
      * @param GELFLog $message messaggio da inviare
      * @return boolean
      */
-    private static function writeREST(GELFMessage $message) {
+    private static function writeREST(GELFMessage $message, $proxy) {
 
         /**
          * Hostname del servizio
@@ -189,8 +189,8 @@ class gCloud_Monitoring {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postFieldsStr);
         curl_setopt($ch, CURLOPT_USERAGENT, self::LIBRARY_VERSION);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        if(is_string($this->proxy) && trim($this->proxy) != ''){
-            curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+        if(is_string(proxy) && trim(proxy) != ''){
+            curl_setopt($ch, CURLOPT_PROXY, proxy);
         }
 
         /**
