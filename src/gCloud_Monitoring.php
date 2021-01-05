@@ -17,6 +17,12 @@ class gCloud_Monitoring {
     public $protocol = 'GELF';
 
     /**
+     * @var string|null proxy url di Proxy per inviare un messaggio (REST)
+     * @access public
+     */
+    public $proxy = null; //127.0.0.1:8888
+
+    /**
      * Current Library Version
      *
      * @var string
@@ -183,6 +189,9 @@ class gCloud_Monitoring {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $postFieldsStr);
         curl_setopt($ch, CURLOPT_USERAGENT, self::LIBRARY_VERSION);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        if(is_string($this->proxy) && trim($this->proxy) != ''){
+            curl_setopt($ch, CURLOPT_PROXY, $this->proxy);
+        }
 
         /**
          * Eseguiamo la richiesta e verifichiamone lo stato
